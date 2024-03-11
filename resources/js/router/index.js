@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import DashboardView  from "../components/DashboardView.vue";
-import About from "../components/About.vue";
+import DashboardView  from "../views/DashboardView.vue";
+import About from "../views/About.vue";
 
 const routes = [
     { path: '/', component: DashboardView },
