@@ -7,7 +7,12 @@ export default {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                'primary': '#101111',
+                'secondary': '#353535',
+            }
+        },
     },
     plugins: [],
 }
