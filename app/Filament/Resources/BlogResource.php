@@ -19,6 +19,7 @@ class BlogResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
+    protected static ?string $navigationGroup = 'Content';
     public static function form(Form $form): Form
     {
         return $form
@@ -27,13 +28,13 @@ class BlogResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
-                    ->columnSpanFull(),
+                    ->required(),
                 Forms\Components\TextInput::make('author')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
                     ->image(),
-            ]);
+            ])->columns(2);
     }
 
     public static function table(Table $table): Table
