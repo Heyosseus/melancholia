@@ -1,9 +1,13 @@
 <template>
     <base-header></base-header>
-    <base-content></base-content>
+    <main-section></main-section>
+    <blog-section></blog-section>
+    <info-section></info-section>
 </template>
 <script setup>
 import BaseHeader from "../components/layouts/BaseHeader.vue";
-import BaseContent from "../components/BaseContent.vue";
+import MainSection from "../components/MainSection.vue";
+import BlogSection from "../components/BlogSection.vue";
+import InfoSection from "../components/InfoSection.vue";
 </script>
 
