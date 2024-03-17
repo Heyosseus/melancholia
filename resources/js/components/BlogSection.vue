@@ -43,7 +43,7 @@
                     and girls, but there are a few rarer types mixed in: Apes, Zombies and even the odd Alien. Every
                     punk has their own profile page that shows their attributes as well as their ownership/for-sale
                     status.</p>
-                <div class="sm:space-x-2">
+                <div class="sm:space-x-4">
                     <button
                         class="w-full sm:w-fit bg-white outline outline-white text-black px-8 py-3 rounded-full text-xl font-semibold hover:bg-neutral-600 transition-colors  hover:outline-neutral-600 hover:text-white mt-20 ">
                         Buy

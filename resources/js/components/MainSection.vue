@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-primary justify-center items-center flex flex-col  relative  z-10">
+        <div class="bg-primary justify-center items-center flex flex-col  relative  z-10">
         <h1 class="text-white text-2xl sm:text-4xl md:text-6xl font-semibold w-full 2xl:w-1/2 px-4 sm:px-20 2xl:px-0 text-center pt-20 ">
             NFT art inspired by the diverse sounds of Gorillaz music
         </h1>
@@ -8,23 +8,34 @@
         >
             Explore
         </button>
-        <div class="flex  w-full items-center justify-center carousel-track z-50 my-32">
-            <img
-                src="../../../public/assets/gorillaz.png"
-                alt=""
-                class="w-56 rounded-2xl"
-            />
+        <div
+             class="flex w-full flex-row items-center justify-center carousel-track z-50 my-32">
+            <div  v-for="(image, index) in images" :key="index" class="flex">
+                <img :src="image" alt="" class="w-56 rounded-2xl"/>
+
+            </div>
         </div>
     </div>
 
 </template>
 
 <script setup>
+import axios from "axios";
+import {onMounted, ref} from "vue";
 
-const images = [
-    '../../../public/assets/gorillaz.png'
-];
-
+const images = ref([]);
+onMounted(() => {
+    getImages();
+});
+const getImages = async () => {
+    try {
+        const response = await axios.get("http://localhost:8000/api/sections");
+        images.value = response.data.map((section) => `/storage/${section.image}`);
+        console.log(images.value);
+    } catch (error) {
+        console.error(error);
+    }
+};
 
 </script>
 
