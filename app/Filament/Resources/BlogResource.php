@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class BlogResource extends Resource
 {
@@ -33,7 +34,12 @@ class BlogResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
-                    ->image(),
+                    ->preserveFilenames()
+                    ->getUploadedFileNameForStorageUsing(function(TemporaryUploadedFile $file) : string {
+                        return (string) str($file->getClientOriginalName())->prepend(now()->timestamp . '_');
+                    })
+                    ->image()
+                ->required(),
             ])->columns(2);
     }
 

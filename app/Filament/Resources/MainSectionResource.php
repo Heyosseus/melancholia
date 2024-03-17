@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class MainSectionResource extends Resource
 {
@@ -32,6 +33,10 @@ class MainSectionResource extends Resource
                 Forms\Components\TextInput::make('description')
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
+                    ->preserveFilenames()
+                    ->getUploadedFileNameForStorageUsing(function(TemporaryUploadedFile $file) : string {
+                        return (string) str($file->getClientOriginalName())->prepend(now()->timestamp . '_');
+                    })
                     ->image(),
             ]);
     }
