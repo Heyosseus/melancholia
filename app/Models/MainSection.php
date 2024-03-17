@@ -9,4 +9,6 @@ class MainSection extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
 }
