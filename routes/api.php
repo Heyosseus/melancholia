@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\MainSectionController;
+use App\Http\Controllers\InfoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
 Route::get('/sections', [MainSectionController::class, 'index'])->name('sections.index');
+Route::get('/infos', [InfoController::class, 'index'])->name('infos.index');

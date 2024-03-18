@@ -2,30 +2,10 @@
     <div class="bg-primary">
         <h1 class="text-center text-4xl text-white font-bold">Featured in</h1>
         <div class="px-6 xl:px-20 mt-20 flex flex-col lg:flex-row justify-center items-center gap-6 xl:gap-10">
-            <div
+            <div v-for="blog in blogs" :key="blog.id"
                 class="rounded-3xl border border-gray-400 space-y-8 text-white w-full lg:w-1/4 pt-4 group hover:border-gray-50 transition-colors cursor-pointer">
-                <h1 class="text-3xl px-8">Test</h1>
-                <p class="my-4 text-xl px-8">TestvTestTest Test Test TestTest TestTestTest</p>
-                <div
-                    class="border-t-2 border-gray-400 flex justify-between px-8 py-4 items-center group-hover:border-gray-50">
-                    <p class="text-xl">Read more</p>
-                    <IconWhiteArrow class="group-hover:rotate-[-30deg] transition duration-300"/>
-                </div>
-            </div>
-            <div
-                class="rounded-3xl border border-gray-400 space-y-8 text-white  w-full lg:w-1/4 pt-4 group hover:border-gray-50 transition-colors cursor-pointer">
-                <h1 class="text-3xl px-8">Test</h1>
-                <p class="my-4 text-xl px-8">TestvTestTest Test Test TestTest TestTestTest</p>
-                <div
-                    class="border-t-2 border-gray-400 flex justify-between px-8 py-4 items-center group-hover:border-gray-50">
-                    <p class="text-xl">Read more</p>
-                    <IconWhiteArrow class="group-hover:rotate-[-30deg] transition duration-300"/>
-                </div>
-            </div>
-            <div
-                class="rounded-3xl border border-gray-400 space-y-8 text-white w-full lg:w-1/4 pt-4 group hover:border-gray-50 transition-colors cursor-pointer">
-                <h1 class="text-3xl px-8">Test</h1>
-                <p class="my-4 text-xl px-8">TestvTestTest Test Test TestTest TestTestTest</p>
+                <h1 class="text-3xl px-6 font-bold">{{ blog.title }}</h1>
+                <p class="my-4 text-xl px-6">{{ blog.description.substring(0, 70) + '...' }}</p>
                 <div
                     class="border-t-2 border-gray-400 flex justify-between px-8 py-4 items-center group-hover:border-gray-50">
                     <p class="text-xl">Read more</p>
@@ -60,4 +40,21 @@
 </template>
 <script setup>
 import IconWhiteArrow from "./icons/IconWhiteArrow.vue";
+
+import axios from "axios";
+import {onMounted, ref} from "vue";
+
+const blogs = ref([]);
+onMounted(() => {
+    getBlogsData();
+});
+const getBlogsData = async () => {
+    try {
+        const response = await axios.get("http://localhost:8000/api/blogs");
+        blogs.value = response.data;
+        console.log(blogs.value)
+    } catch (error) {
+        console.error(error);
+    }
+};
 </script>

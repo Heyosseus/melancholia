@@ -10,7 +10,7 @@ class BlogController extends Controller
 {
     public function index() : JsonResponse
     {
-        $blogs = Blog::all();
+        $blogs = Blog::latest()->limit(3)->get();
         return response()->json($blogs);
     }
 }

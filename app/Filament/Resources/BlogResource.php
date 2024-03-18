@@ -39,7 +39,6 @@ class BlogResource extends Resource
                         return (string) str($file->getClientOriginalName())->prepend(now()->timestamp . '_');
                     })
                     ->image()
-                ->required(),
             ])->columns(2);
     }
 
