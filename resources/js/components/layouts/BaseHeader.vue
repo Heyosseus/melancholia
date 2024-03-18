@@ -49,50 +49,31 @@
                 </div>
 
                 <ul class="flex flex-col space-y-6 mt-10 ">
-                    <li class="flex justify-between group cursor-pointer">
-                        <router-link to="/" class="text-black text-2xl font-bold hover:text-gray-500 hover:font-bold">
-                            Home
-                        </router-link>
-
+                    <router-link to="/"
+                                 class="flex justify-between group cursor-pointer text-black text-2xl font-bold hover:text-gray-500 hover:font-bold">
+                        Home
                         <IconRightArrow
                             class="group-hover:rotate-[-45deg] transition-transform duration-300 ease-in-out"/>
-                    </li>
-                    <li class="flex justify-between group cursor-pointer">
-
-
-                        <router-link to="/about"
-                                     class="text-black text-2xl  font-bold hover:text-gray-500 hover:font-bold ">
-                            About
-                        </router-link>
+                    </router-link>
+                    <router-link to="/about"
+                                 class="flex justify-between group cursor-pointer text-black text-2xl  font-bold hover:text-gray-500 hover:font-bold">
+                        About
                         <IconRightArrow
                             class="group-hover:rotate-[-45deg] transition-transform duration-300 ease-in-out"/>
+                    </router-link>
 
-
-                    </li>
-                    <li class="flex justify-between group cursor-pointer">
-
-
-                        <router-link to="/about"
-                                     class="text-black text-2xl  font-bold hover:text-gray-500 hover:font-bold ">
-                            Collection
-                        </router-link>
+                    <router-link to="/about"
+                                 class="flex justify-between group cursor-pointer text-black text-2xl  font-bold hover:text-gray-500 hover:font-bold">
+                        Collection
                         <IconRightArrow
                             class="group-hover:rotate-[-45deg] transition-transform duration-300 ease-in-out"/>
+                    </router-link>
+                    <router-link to="/about" class="flex justify-between group cursor-pointer text-black text-2xl  font-bold hover:text-gray-500 hover:font-bold">
 
-
-                    </li>
-                    <li class="flex justify-between group cursor-pointer">
-
-
-                        <router-link to="/about"
-                                     class="text-black text-2xl  font-bold hover:text-gray-500 hover:font-bold ">
                             FAQs
-                        </router-link>
                         <IconRightArrow
                             class="group-hover:rotate-[-45deg] transition-transform duration-300 ease-in-out"/>
-
-
-                    </li>
+                    </router-link>
 
                 </ul>
                 <div class="flex gap-6 mt-20">
