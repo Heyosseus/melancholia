@@ -16,6 +16,7 @@
     "dependencies": {
         "@headlessui/vue": "^1.7.19",
         "@vitejs/plugin-vue": "^5.0.4",
+        "sweetalert2": "^11.10.6",
         "vue": "^3.4.21",
         "vue-router": "^4.3.0"
     }

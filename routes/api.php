@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\MainSectionController;
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FAQController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,3 +27,4 @@ Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
 Route::get('/sections', [MainSectionController::class, 'index'])->name('sections.index');
 Route::get('/infos', [InfoController::class, 'index'])->name('infos.index');
 Route::get('/details', [FAQController::class, 'index'])->name('details.index');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
