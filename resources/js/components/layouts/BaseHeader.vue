@@ -20,8 +20,8 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/about" class="text-gray-200 text-xl  font-bold hover:text-white hover:font-bold ">
-                        FAQs
+                    <router-link to="/token" class="text-gray-200 text-xl  font-bold hover:text-white hover:font-bold ">
+                        Token
                     </router-link>
                 </li>
             </ul>
@@ -68,9 +68,9 @@
                         <IconRightArrow
                             class="group-hover:rotate-[-45deg] transition-transform duration-300 ease-in-out"/>
                     </router-link>
-                    <router-link to="/about" class="flex justify-between group cursor-pointer text-black text-2xl  font-bold hover:text-gray-500 hover:font-bold">
+                    <router-link to="/token" class="flex justify-between group cursor-pointer text-black text-2xl  font-bold hover:text-gray-500 hover:font-bold">
 
-                            FAQs
+                            Token
                         <IconRightArrow
                             class="group-hover:rotate-[-45deg] transition-transform duration-300 ease-in-out"/>
                     </router-link>
