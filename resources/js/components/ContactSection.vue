@@ -1,7 +1,7 @@
 <template>
-    <div id="contact_us" class="flex flex-col  lg:flex-row justify-between  px-4 lg:px-16 py-5 mb-20 mt-6 lg:mt-16">
-        <div class="px-8 lg:px-5 ">
-            <h1 class="uppercase tracking-wide text-center text-lg lg:text-start">connect with us</h1>
+    <div id="contact_us" class="flex flex-col bg-white lg:flex-row lg:justify-center  lg:mx-auto xl:mx-32  lg:space-x-28 lg:shadow-lg px-4 lg:p-16  mb-20 mt-6 lg:mt-10">
+        <div class="px-2 ">
+            <h1 class="uppercase tracking-wide text-center text-lg lg:text-start mt-6 lg:mt-0">connect with us</h1>
             <div class="w-16 m-auto lg:m-1 lg:w-1/6 h-[1px] bg-primary "></div>
             <h1 class="text-4xl font-bold text-primary tracking-wide mt-10">Let's collaborate</h1>
 
@@ -46,7 +46,7 @@
 
         </div>
 
-        <div class="px-10  relative ">
+        <div class="px-4 lg:px-10 mb-16 lg:mb-0  relative ">
             <h1 class="uppercase tracking-wide mt-10 text-center text-lg lg:text-start lg:mt-0">contact us</h1>
             <div class="w-16 m-auto lg:m-1 lg:w-1/3 h-[1px] bg-primary "></div>
             <div class="mt-10 sm:flex sm:flex-row items-center sm:justify-around lg:flex-col lg:items-start ">
@@ -62,7 +62,7 @@
                     </div>
 
                 </div>
-                <!--                <img src="{{ asset('assets/contact.png') }}" alt="photo"  class="hidden xl:block absolute z-0 right-[-75px] 2xl:right-[-150px] bottom-10 rotate-[-20deg]" >-->
+
 
             </div>
         </div>
@@ -84,6 +84,22 @@ const formData = ref({
     subject: ''
 });
 
+const messageBox = (text, err) => {
+    let message = document.createElement('div');
+    message.innerText = text;
+    message.classList.add('message-box');
+    err ?  message.style.background = '#d50e0e' : '';
+    document.body.append(message);
+
+    setTimeout(() => {
+        message.style.opacity = '0';
+        message.style.transition = 'opacity 0.5s';
+        setTimeout(() => {
+            message.remove();
+        }, 500);
+    }, 3000);
+};
+
 const submitForm = async () => {
     try {
         await axios.post('/api/contact',
@@ -94,46 +110,26 @@ const submitForm = async () => {
                 subject: formData.value.subject
             }
         ).then(response => {
-            let timerInterval;
-            Swal.fire({
-                title: "successfully sent!",
-                timer: 2000,
-                icon: "success",
-                didOpen: () => {
-                    const timer = Swal.getPopup().querySelector("b");
-                    timerInterval = setInterval(() => {
-                        timer.textContent = `${Swal.getTimerLeft()}`;
-                    }, 100);
-                },
-                willClose: () => {
-                    clearInterval(timerInterval);
-                }
-            }).then((result) => {
-                if (result.dismiss === Swal.DismissReason.timer) {
-                    console.log("I was closed by the timer");
-                }
-            });
+            for(let x in formData.value){
+                formData.value[x] = '';
+            }
+          messageBox(response.data.success, false)
         })
     } catch (error)  {
-        let timerInterval;
-        Swal.fire({
-            title: "Failed!",
-            timer: 2000,
-            icon: "error",
-            didOpen: () => {
-                const timer = Swal.getPopup().querySelector("b");
-                timerInterval = setInterval(() => {
-                    timer.textContent = `${Swal.getTimerLeft()}`;
-                }, 100);
-            },
-            willClose: () => {
-                clearInterval(timerInterval);
-            }
-        }).then((result) => {
-            if (result.dismiss === Swal.DismissReason.timer) {
-                console.log("I was closed by the timer");
-            }
-        });
+        messageBox(error, true)
     }
 }
 </script>
+<style>
+.message-box{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    margin: auto;
+    padding: 8px 26px;
+    border-radius: 6px;
+    background: #00bb00;
+    color: white;
+    font-weight: bold;
+}
+</style>

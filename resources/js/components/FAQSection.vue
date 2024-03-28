@@ -1,18 +1,18 @@
 <template>
     <div
         class="flex flex-col lg:flex-row items-start 2xl:justify-between py-20 ">
-        <div class="flex flex-col w-full px-4 sm:px-16 mx-auto lg:mx-0  gap-5 cursor-pointer"
+        <div class="flex flex-col w-full px-4 sm:px-32 mx-auto lg:mx-0 cursor-pointer"
         >
-            <h1 class="text-4xl font-bold">Details & FAQ</h1>
-            <div class="rounded-lg shadow-lg py-3 px-4 text-primary text-lg w-full mx-auto"
+            <h1 class="text-3xl lg:text-5xl mb-10  text-center">Frequently Asked Questions</h1>
+            <div class="border border-black shadow-lg py-6 px-8 bg-white text-primary  w-full mx-auto"
                  v-for="(section, index) in data" :key="index">
                 <Disclosure as="div"
                             v-slot="{ open }"
                 >
                         <DisclosureButton
-                            class="py-2 text-2xl font-bold tracking-wider flex items-center w-full  justify-between">
-                            <p> {{ section.title }}</p>
-                            <IconRightArrow :class="open && 'rotate-90 transform'"/>
+                            class="py-2 text-xl font-bold tracking-wider flex items-center w-full  justify-between">
+                            <p>  {{ section.title }}</p>
+                            <IconRightArrow :class="open && 'rotate-[270deg] transform'" class="rotate-90"/>
                         </DisclosureButton>
                     <transition
                         enter-active-class="transition duration-100 ease-out"

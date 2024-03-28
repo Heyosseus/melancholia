@@ -25,11 +25,11 @@
                     status.</p>
                 <div class="sm:space-x-4">
                     <button
-                        class="w-full sm:w-fit bg-white outline outline-white text-black px-8 py-3 rounded-full text-xl font-semibold hover:bg-neutral-600 transition-colors  hover:outline-neutral-600 hover:text-white mt-20 ">
+                        class="w-full sm:w-fit bg-white  text-black px-8 py-3 rounded-full text-xl font-semibold hover:bg-neutral-600 transition-colors  hover:outline-neutral-600 hover:text-white mt-20 ">
                         Buy
                     </button>
                     <button
-                        class="w-full mt-4 sm:mt-0 sm:w-fit outline outline-gray-400 px-8 py-3 rounded-full text-xl font-semibold hover:outline-gray-50    ">
+                        class="w-full mt-4 sm:mt-0 sm:w-fit shadow-gray-100 shadow px-8 py-3 rounded-full text-xl font-semibold hover:outline-gray-50    ">
                         View full collection
                     </button>
                 </div>

@@ -19,7 +19,7 @@ class ContactController extends Controller
         ]);
 
         Contact::create($attributes);
-        return response()->json(['success' => true]);
+        return response()->json(['success' => 'Message sent successfully']);
     }
 
 }
